@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — CozyClock</title>
+  <meta name="description" content="Privacy Policy for CozyClock, covering local data, notifications, advertising, handwriting recognition, and app permissions." />
+  <meta name="theme-color" content="#5B4FCF" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" width="40" height="40" alt="CozyClock logo" />
+        CozyClock
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a class="is-active" href="privacy.html">Privacy</a></li>
+        <li><a class="nav-cta" href="index.html#download">Get the app</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="container page-hero">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: August 17, 2026 · Applies to CozyClock for Android and iOS</p>
+    </div>
+
+    <section class="legal">
+      <div class="container legal-layout">
+        <nav class="toc" aria-label="Policy sections">
+          <strong>On this page</strong>
+          <ol>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#data-we-store">Data we store</a></li>
+            <li><a href="#permissions">Permissions &amp; scopes</a></li>
+            <li><a href="#ads">Advertising</a></li>
+            <li><a href="#mlkit">Handwriting (ML Kit)</a></li>
+            <li><a href="#updates">App updates</a></li>
+            <li><a href="#third-parties">Third parties</a></li>
+            <li><a href="#children">Children</a></li>
+            <li><a href="#retention">Retention &amp; deletion</a></li>
+            <li><a href="#your-choices">Your choices</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#changes">Changes</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </nav>
+
+        <article class="legal-body">
+          <h2 id="overview">1. Overview</h2>
+          <p>
+            CozyClock (“we”, “us”, “the app”) is a local productivity clock for gentle <strong>interval alarms</strong>,
+            <strong>tasks with reminders</strong>, and <strong>timer templates</strong> (coffee, exercise, focus, kitchen, wellness).
+          </p>
+          <p>
+            You do <strong>not</strong> need an account to use CozyClock. Core content you create — alarms, tasks, timer paces,
+            and appearance settings — is stored on your device. This policy explains what the app stores locally, which
+            system permissions it uses, and how third-party services (ads, on-device recognition, optional over-the-air updates)
+            may process limited technical data.
+          </p>
+          <div class="note">
+            CozyClock does not sell your personal information. We do not operate a user profile or cloud sync for alarms and tasks in the current release.
+          </div>
+
+          <h2 id="data-we-store">2. Data we store on your device</h2>
+          <p>Depending on how you use the app, CozyClock may store the following <strong>locally</strong>:</p>
+          <table class="scope-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Examples</th>
+                <th>Where stored</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Interval alarms</td>
+                <td>Name, start/end window, interval minutes, repeat days, enabled state</td>
+                <td>On-device preferences</td>
+              </tr>
+              <tr>
+                <td>Tasks</td>
+                <td>Title, notes, due date/time, priority, reminder style, completion status</td>
+                <td>On-device SQLite database (<code>cozyclock.db</code>)</td>
+              </tr>
+              <tr>
+                <td>Timer templates</td>
+                <td>Saved custom durations / “your pace” values</td>
+                <td>On-device preferences</td>
+              </tr>
+              <tr>
+                <td>Settings</td>
+                <td>Language, theme color, light/dark/system mode</td>
+                <td>On-device preferences</td>
+              </tr>
+              <tr>
+                <td>Timezone (read)</td>
+                <td>Device timezone used only to schedule local notifications correctly</td>
+                <td>Read at runtime; not uploaded by CozyClock</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Uninstalling the app, or clearing the app’s storage, removes this local data from that device.
+            We do not receive a copy of your alarm or task content through CozyClock’s own servers.
+          </p>
+
+          <h2 id="permissions">3. Permissions &amp; scopes (by app nature)</h2>
+          <p>
+            CozyClock requests only the capabilities needed for alarms, reminders, timers, ads, recognition models, and updates.
+            It does <strong>not</strong> request access to your location, camera, microphone, contacts, photos library, SMS, health data, or Bluetooth.
+          </p>
+
+          <h3>Android</h3>
+          <table class="scope-table">
+            <thead>
+              <tr>
+                <th>Permission / capability</th>
+                <th>Why CozyClock needs it</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>INTERNET</code></td>
+                <td>Load banner ads (AdMob), download handwriting recognition models when needed, and fetch optional code updates (Shorebird).</td>
+              </tr>
+              <tr>
+                <td><code>ACCESS_NETWORK_STATE</code></td>
+                <td>Used by advertising and networking libraries to check connectivity before network requests.</td>
+              </tr>
+              <tr>
+                <td><code>POST_NOTIFICATIONS</code></td>
+                <td>Show local notifications for interval alarms, task reminders, and completed timers.</td>
+              </tr>
+              <tr>
+                <td><code>SCHEDULE_EXACT_ALARM</code> / <code>USE_EXACT_ALARM</code></td>
+                <td>Schedule precise wake-up and reminder times so rings fire at the intervals you set.</td>
+              </tr>
+              <tr>
+                <td><code>RECEIVE_BOOT_COMPLETED</code></td>
+                <td>Allow reminders/alarms to be restored after the device restarts (together with rescheduling when you open the app).</td>
+              </tr>
+              <tr>
+                <td><code>VIBRATE</code></td>
+                <td>Vibration patterns for alarms and notifications when enabled by the system/notification channel.</td>
+              </tr>
+              <tr>
+                <td><code>USE_FULL_SCREEN_INTENT</code></td>
+                <td>Present high-priority / urgent timer or task alerts in a full-screen style when the platform allows it.</td>
+              </tr>
+              <tr>
+                <td><code>WAKE_LOCK</code> (library)</td>
+                <td>Helps background scheduling and ad/network components keep short wake windows while work completes.</td>
+              </tr>
+              <tr>
+                <td>Advertising ID / AdServices (<code>AD_ID</code>, Topics, Attribution)</td>
+                <td>Used by Google Mobile Ads for ad serving, frequency, and measurement on Android. See Advertising below.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>iOS</h3>
+          <table class="scope-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Why CozyClock needs it</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Notifications (alert, badge, sound)</td>
+                <td>Deliver local alarms, task reminders, and timer completion alerts. Requested when you use notification features.</td>
+              </tr>
+              <tr>
+                <td>Network access</td>
+                <td>Ads, optional recognition model downloads, and optional over-the-air updates.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            CozyClock does not currently declare App Tracking Transparency (ATT) prompts or camera/mic/location usage descriptions,
+            because those hardware/tracking scopes are not part of the app’s core feature set.
+          </p>
+
+          <h2 id="ads">4. Advertising (Google AdMob)</h2>
+          <p>
+            CozyClock shows <strong>banner advertisements</strong> labeled as sponsored content to support the app.
+            Ads are provided by <strong>Google Mobile Ads (AdMob)</strong>.
+          </p>
+          <ul>
+            <li>Ad networks may collect device and advertising identifiers, IP address, coarse device info, and interaction data about ads.</li>
+            <li>On Android, this may include the advertising ID and Privacy Sandbox AdServices signals used for ad delivery and attribution.</li>
+            <li>Ad content and partners are governed by Google’s policies and the privacy practices of participating networks.</li>
+          </ul>
+          <p>
+            Learn more: <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a>
+            and <a href="https://support.google.com/admob/answer/6128543" rel="noopener noreferrer" target="_blank">AdMob &amp; privacy</a>.
+          </p>
+          <p>
+            You can limit ad personalization in your device settings (for example, reset or opt out of the advertising ID on Android,
+            or adjust personalized ads settings where available on your platform).
+          </p>
+
+          <h2 id="mlkit">5. Handwriting recognition (Google ML Kit)</h2>
+          <p>
+            If you use the pen/stylus pad to create a task title, CozyClock uses <strong>Google ML Kit Digital Ink Recognition</strong>
+            to convert strokes into text.
+          </p>
+          <ul>
+            <li>Stroke processing for recognition is performed <strong>on-device</strong> for this feature.</li>
+            <li>The app may download a language recognition model over the network when a model for your locale is not already cached.</li>
+            <li>Your handwriting strokes and resulting task text are stored as part of the local task data described above; they are not uploaded to CozyClock’s own backend.</li>
+          </ul>
+          <p>
+            See Google’s documentation for ML Kit for additional details on model download and processing.
+          </p>
+
+          <h2 id="updates">6. Optional over-the-air updates (Shorebird)</h2>
+          <p>
+            Some release builds may use <strong>Shorebird</strong> to check for and download code patches after install
+            (when enabled for that build). That process contacts Shorebird’s update infrastructure and may include
+            basic device/app version information needed to deliver the correct patch.
+          </p>
+          <p>
+            Update checks are intended for bug fixes and improvements; they are not used to sync your alarms or tasks to our servers.
+          </p>
+
+          <h2 id="third-parties">7. Third-party services summary</h2>
+          <table class="scope-table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Role</th>
+                <th>Data involved</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Google Mobile Ads (AdMob)</td>
+                <td>Banner ads</td>
+                <td>Advertising/device identifiers, network &amp; ad interaction data (per Google/ad partners)</td>
+              </tr>
+              <tr>
+                <td>Google ML Kit Digital Ink</td>
+                <td>Handwriting → text</td>
+                <td>On-device strokes; possible model download over the network</td>
+              </tr>
+              <tr>
+                <td>Shorebird (when enabled)</td>
+                <td>Optional code updates</td>
+                <td>App/version technical data for patch delivery</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            CozyClock does not include a first-party analytics or crash-reporting SDK in the current app package.
+            Libraries bundled with ads or ML components may include measurement-related components governed by those providers.
+          </p>
+          <p>
+            Scaffolded networking code for account APIs may exist in the project for future use, but the shipping app UI
+            does <strong>not</strong> require login, registration, or cloud profiles. If account features are added later,
+            this policy will be updated before those features collect personal data.
+          </p>
+
+          <h2 id="children">8. Children’s privacy</h2>
+          <p>
+            CozyClock is a general productivity utility and is not directed at children under 13 (or the equivalent minimum age
+            in your country). We do not knowingly collect personal information from children. If you believe a child has
+            provided personal information through a third-party service used by the app, contact us and we will help with
+            appropriate steps within our control (such as guidance to clear local app data or adjust ad settings).
+          </p>
+
+          <h2 id="retention">9. Retention &amp; deletion</h2>
+          <ul>
+            <li><strong>Local app data:</strong> retained on your device until you delete items in-app, clear app storage, or uninstall.</li>
+            <li><strong>Ads / update / model providers:</strong> retained according to each provider’s policies.</li>
+            <li><strong>Scheduled notifications:</strong> removed or rescheduled when you disable or delete the related alarm/task/timer, or when system permission is revoked.</li>
+          </ul>
+
+          <h2 id="your-choices">10. Your choices</h2>
+          <ul>
+            <li>Deny or revoke notification permission in system settings (alarms/reminders may not fire).</li>
+            <li>Deny exact-alarm / full-screen intent capabilities where your OS allows (timing or alert presentation may be less precise).</li>
+            <li>Limit ad personalization via device advertising settings.</li>
+            <li>Avoid handwriting features if you do not want ink recognition or model downloads.</li>
+            <li>Delete tasks/alarms in-app or uninstall CozyClock to remove local content.</li>
+          </ul>
+
+          <h2 id="security">11. Security</h2>
+          <p>
+            Local data is protected by your device’s storage and OS sandboxing. No method of electronic storage is 100% secure.
+            Protect your device with a passcode/biometrics and keep your OS updated.
+          </p>
+
+          <h2 id="changes">12. Changes to this policy</h2>
+          <p>
+            We may update this Privacy Policy when features, permissions, or third-party services change.
+            The “Last updated” date at the top will be revised. Continued use of CozyClock after changes means you accept the updated policy.
+            Material changes that expand data collection will be reflected here before those features ship.
+          </p>
+
+          <h2 id="contact">13. Contact</h2>
+          <p>
+            Questions about this Privacy Policy or CozyClock’s data practices can be sent through the support channel listed on the CozyClock store listing for your platform.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> CozyClock</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
