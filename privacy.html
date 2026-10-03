@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy — CozyClock</title>
-  <meta name="description" content="Privacy Policy for CozyClock, covering local data, notifications, advertising, handwriting recognition, and app permissions." />
+  <meta name="description" content="Privacy Policy for CozyClock, covering local alarms and notes, step counts, notifications, advertising, handwriting recognition, and app permissions." />
   <meta name="theme-color" content="#5B4FCF" />
   <link rel="icon" href="assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,7 +33,7 @@
   <main>
     <div class="container page-hero">
       <h1>Privacy Policy</h1>
-      <p class="meta">Last updated: August 17, 2026 · Applies to CozyClock for Android and iOS</p>
+      <p class="meta">Last updated: October 4, 2026 · Applies to CozyClock for Android and iOS</p>
     </div>
 
     <section class="legal">
@@ -61,16 +61,17 @@
           <h2 id="overview">1. Overview</h2>
           <p>
             CozyClock (“we”, “us”, “the app”) is a local productivity clock for gentle <strong>interval alarms</strong>,
-            <strong>tasks with reminders</strong>, and <strong>timer templates</strong> (coffee, exercise, focus, kitchen, wellness).
+            <strong>notes with reminders</strong>, <strong>timer templates</strong> (coffee, exercise, focus, kitchen, wellness),
+            and <strong>Cozy Steps</strong> (today’s step count from your phone or a connected watch).
           </p>
           <p>
-            You do <strong>not</strong> need an account to use CozyClock. Core content you create — alarms, tasks, timer paces,
-            and appearance settings — is stored on your device. This policy explains what the app stores locally, which
-            system permissions it uses, and how third-party services (ads, on-device recognition, optional over-the-air updates)
+            You do <strong>not</strong> need an account to use CozyClock. Core content you create — alarms, notes, timer paces,
+            appearance settings, and today’s step total — is stored on your device. This policy explains what the app stores locally,
+            which system permissions it uses, and how third-party services (ads, on-device recognition, optional over-the-air updates)
             may process limited technical data.
           </p>
           <div class="note">
-            CozyClock does not sell your personal information. We do not operate a user profile or cloud sync for alarms and tasks in the current release.
+            CozyClock does not sell your personal information. We do not operate a user profile or cloud sync for alarms, notes, or steps in the current release.
           </div>
 
           <h2 id="data-we-store">2. Data we store on your device</h2>
@@ -86,13 +87,18 @@
             <tbody>
               <tr>
                 <td>Interval alarms</td>
-                <td>Name, start/end window, interval minutes, repeat days, enabled state</td>
+                <td>Name, start/end window, interval minutes, repeat days, enabled state, vibration, sound (system or the bundled cozy tone)</td>
                 <td>On-device preferences</td>
               </tr>
               <tr>
-                <td>Tasks</td>
-                <td>Title, notes, due date/time, priority, reminder style, completion status</td>
+                <td>Notes</td>
+                <td>Title, notes, due date/time, whether the due time includes a clock time, priority, reminder style (notification, alarm sound, or silent nudge), repeat (none, once, daily, weekly), completion status</td>
                 <td>On-device SQLite database (<code>cozyclock.db</code>)</td>
+              </tr>
+              <tr>
+                <td>Shared text</td>
+                <td>Text you send into CozyClock from another app, or a <code>cozyclock://</code> link, used to prefill a new note</td>
+                <td>Held in memory until you save or leave the note; saved notes stay in the local database</td>
               </tr>
               <tr>
                 <td>Timer templates</td>
@@ -105,6 +111,11 @@
                 <td>On-device preferences</td>
               </tr>
               <tr>
+                <td>Cozy Steps</td>
+                <td>Daily goal (10,000 by default), whether you allowed step access, and a same-day phone-pedometer baseline used to compute today’s count</td>
+                <td>On-device preferences. The count itself is read at runtime from the phone pedometer or from Health and is not uploaded by CozyClock</td>
+              </tr>
+              <tr>
                 <td>Timezone (read)</td>
                 <td>Device timezone used only to schedule local notifications correctly</td>
                 <td>Read at runtime; not uploaded by CozyClock</td>
@@ -112,14 +123,21 @@
             </tbody>
           </table>
           <p>
+            After you allow steps, CozyClock reads <strong>today’s step count only</strong>. If a watch (Apple Health or Health Connect) has a count, that total is shown. Otherwise the phone pedometer is used. The two sources are not added together. The app requests <strong>read</strong> access and does not write workouts or other health records.
+          </p>
+          <p>
+            Join, create, and step-visibility controls are marked <strong>coming soon</strong> and are not a live social network. CozyClock does not upload your step count, name, or a friend list to its own servers. Any sample group names kept on the device are local placeholders, not other people’s accounts.
+          </p>
+          <p>
             Uninstalling the app, or clearing the app’s storage, removes this local data from that device.
-            We do not receive a copy of your alarm or task content through CozyClock’s own servers.
+            We do not receive a copy of your alarms, notes, or step totals through CozyClock’s own servers.
           </p>
 
           <h2 id="permissions">3. Permissions &amp; scopes (by app nature)</h2>
           <p>
-            CozyClock requests only the capabilities needed for alarms, reminders, timers, ads, recognition models, and updates.
-            It does <strong>not</strong> request access to your location, camera, microphone, contacts, photos library, SMS, health data, or Bluetooth.
+            CozyClock requests the capabilities needed for alarms, reminders, timers, today’s steps, ads, recognition models, and updates.
+            It does <strong>not</strong> request access to your location, camera, microphone, contacts, photos library, SMS, or Bluetooth.
+            Step access is limited to reading today’s step count, and only after you allow it.
           </p>
 
           <h3>Android</h3>
@@ -133,7 +151,7 @@
             <tbody>
               <tr>
                 <td><code>INTERNET</code></td>
-                <td>Load banner ads (AdMob), download handwriting recognition models when needed, and fetch optional code updates (Shorebird).</td>
+                <td>Load banner ads (AdMob), download handwriting recognition models when needed, fetch optional code updates (Shorebird), and open the privacy page from More → About us.</td>
               </tr>
               <tr>
                 <td><code>ACCESS_NETWORK_STATE</code></td>
@@ -141,7 +159,7 @@
               </tr>
               <tr>
                 <td><code>POST_NOTIFICATIONS</code></td>
-                <td>Show local notifications for interval alarms, task reminders, and completed timers.</td>
+                <td>Show local notifications for interval alarms, note reminders, and completed timers.</td>
               </tr>
               <tr>
                 <td><code>SCHEDULE_EXACT_ALARM</code> / <code>USE_EXACT_ALARM</code></td>
@@ -157,11 +175,35 @@
               </tr>
               <tr>
                 <td><code>USE_FULL_SCREEN_INTENT</code></td>
-                <td>Present high-priority / urgent timer or task alerts in a full-screen style when the platform allows it.</td>
+                <td>Present high-priority alarm, timer, or note alerts in a full-screen style when the platform allows it.</td>
               </tr>
               <tr>
-                <td><code>WAKE_LOCK</code> (library)</td>
-                <td>Helps background scheduling and ad/network components keep short wake windows while work completes.</td>
+                <td><code>TURN_SCREEN_ON</code></td>
+                <td>Turn the screen on so an alarm can be seen and stopped when it rings.</td>
+              </tr>
+              <tr>
+                <td><code>FOREGROUND_SERVICE</code> / <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code></td>
+                <td>Keep alarm audio playing while the ring screen is in the foreground.</td>
+              </tr>
+              <tr>
+                <td><code>WAKE_LOCK</code></td>
+                <td>Helps the alarm and short network work finish without the CPU sleeping immediately.</td>
+              </tr>
+              <tr>
+                <td><code>ACCESS_NOTIFICATION_POLICY</code></td>
+                <td>Declared with alarm playback so rings can be presented as alarms. CozyClock does not read the contents of your other notifications.</td>
+              </tr>
+              <tr>
+                <td><code>READ_EXTERNAL_STORAGE</code></td>
+                <td>Declared with the alarm feature on older Android versions. CozyClock does not browse your photos or files; alarm sounds are the system tone or the bundled cozy sound.</td>
+              </tr>
+              <tr>
+                <td><code>ACTIVITY_RECOGNITION</code></td>
+                <td>Count today’s steps from the phone pedometer when a watch total is not used.</td>
+              </tr>
+              <tr>
+                <td><code>health.READ_STEPS</code></td>
+                <td>Read today’s step total from Health Connect, including a connected watch. Read only; CozyClock does not write health data.</td>
               </tr>
               <tr>
                 <td>Advertising ID / AdServices (<code>AD_ID</code>, Topics, Attribution)</td>
@@ -181,7 +223,27 @@
             <tbody>
               <tr>
                 <td>Notifications (alert, badge, sound)</td>
-                <td>Deliver local alarms, task reminders, and timer completion alerts. Requested when you use notification features.</td>
+                <td>Deliver local alarms, note reminders, and timer completion alerts. Requested when you use notification features.</td>
+              </tr>
+              <tr>
+                <td>AlarmKit</td>
+                <td>Schedule Clock-style alarms that can ring when CozyClock is closed, on iOS versions that support AlarmKit.</td>
+              </tr>
+              <tr>
+                <td>Local network (Bonjour <code>_alarmkit._tcp</code>)</td>
+                <td>Used by AlarmKit so those alarms can ring when the app is closed. CozyClock does not scan your home network for other devices.</td>
+              </tr>
+              <tr>
+                <td>Motion</td>
+                <td>Count today’s steps from the iPhone pedometer when an Apple Watch total is not used.</td>
+              </tr>
+              <tr>
+                <td>Health (read steps)</td>
+                <td>Read today’s step count from Apple Health, including Apple Watch, after you allow access. CozyClock does not write health data.</td>
+              </tr>
+              <tr>
+                <td>Background audio and background fetch</td>
+                <td>Support alarm playback and rescheduling used by the alarm libraries.</td>
               </tr>
               <tr>
                 <td>Network access</td>
@@ -190,8 +252,8 @@
             </tbody>
           </table>
           <p>
-            CozyClock does not currently declare App Tracking Transparency (ATT) prompts or camera/mic/location usage descriptions,
-            because those hardware/tracking scopes are not part of the app’s core feature set.
+            CozyClock does not currently declare App Tracking Transparency (ATT) prompts or camera, microphone, or location usage descriptions,
+            because those scopes are not part of the app’s feature set.
           </p>
 
           <h2 id="ads">4. Advertising (Google AdMob)</h2>
@@ -234,7 +296,7 @@
             basic device/app version information needed to deliver the correct patch.
           </p>
           <p>
-            Update checks are intended for bug fixes and improvements; they are not used to sync your alarms or tasks to our servers.
+            Update checks are intended for bug fixes and improvements; they are not used to sync your alarms, notes, or steps to our servers.
           </p>
 
           <h2 id="third-parties">7. Third-party services summary</h2>
@@ -262,6 +324,11 @@
                 <td>Optional code updates</td>
                 <td>App/version technical data for patch delivery</td>
               </tr>
+              <tr>
+                <td>Apple Health / Health Connect and the phone pedometer</td>
+                <td>Today’s step total</td>
+                <td>Read on the device after you allow access. CozyClock does not send this total to its own servers</td>
+              </tr>
             </tbody>
           </table>
           <p>
@@ -284,18 +351,20 @@
 
           <h2 id="retention">9. Retention &amp; deletion</h2>
           <ul>
-            <li><strong>Local app data:</strong> retained on your device until you delete items in-app, clear app storage, or uninstall.</li>
+            <li><strong>Local app data:</strong> retained on your device until you delete items in-app, clear app storage, or uninstall. That includes alarms, notes, timer paces, settings, the step goal, and the record that you allowed step access.</li>
             <li><strong>Ads / update / model providers:</strong> retained according to each provider’s policies.</li>
-            <li><strong>Scheduled notifications:</strong> removed or rescheduled when you disable or delete the related alarm/task/timer, or when system permission is revoked.</li>
+            <li><strong>Health and motion data:</strong> today’s step total is read from the system when you open Cozy Steps. CozyClock does not keep a cloud history of your steps. Revoking Health, Health Connect, or motion permission stops new reads.</li>
+            <li><strong>Scheduled notifications:</strong> removed or rescheduled when you disable or delete the related alarm, note, or timer, or when system permission is revoked.</li>
           </ul>
 
           <h2 id="your-choices">10. Your choices</h2>
           <ul>
-            <li>Deny or revoke notification permission in system settings (alarms/reminders may not fire).</li>
-            <li>Deny exact-alarm / full-screen intent capabilities where your OS allows (timing or alert presentation may be less precise).</li>
+            <li>Deny or revoke notification permission in system settings (alarms and reminders may not fire).</li>
+            <li>Deny exact-alarm, AlarmKit, or full-screen intent capabilities where your OS allows (timing or alert presentation may be less precise).</li>
+            <li>Deny motion, Health, or Health Connect step access (Cozy Steps will not show a count).</li>
             <li>Limit ad personalization via device advertising settings.</li>
             <li>Avoid handwriting features if you do not want ink recognition or model downloads.</li>
-            <li>Delete tasks/alarms in-app or uninstall CozyClock to remove local content.</li>
+            <li>Delete notes and alarms in-app, or uninstall CozyClock, to remove local content.</li>
           </ul>
 
           <h2 id="security">11. Security</h2>
